@@ -1,6 +1,6 @@
 import http from "node:http";
 
-const PORT = Number(process.env.PORT || 8080);
+const PORT = Number(process.env.PORT || 7860);
 const TIMEOUT_MS = Number(process.env.UPSTREAM_TIMEOUT_MS || 120_000);
 const DEFAULT_HEALTH_HOSTS = ["httpbin.org", "api.httpbin.org", "www.google.com"];
 const DROP_HEADERS = new Set([

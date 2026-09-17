@@ -1,8 +1,27 @@
+---
+title: AI Proxy Relay Node
+emoji: 🔁
+colorFrom: blue
+colorTo: green
+sdk: docker
+app_port: 7860
+---
+
 # AI Proxy Relay — Node.js
 
-Stateless HTTP header relay untuk 9Router / VansRouter. Cocok untuk Railway, Render, Fly.io, Koyeb, Northflank, dan VPS.
+Stateless HTTP header relay untuk 9Router / VansRouter. Cocok untuk Hugging Face Spaces, Railway, Render, Fly.io, Koyeb, Northflank, dan VPS.
 
 ## Deploy cepat
+
+### Hugging Face Spaces
+
+1. Buka [Create a Space](https://huggingface.co/new-space).
+2. Pilih SDK `Docker` dan hardware `CPU Basic`.
+3. Upload atau import file repository ini.
+4. Tunggu build selesai.
+5. URL relay berbentuk `https://<username>-<space-name>.hf.space`.
+
+Space CPU gratis dapat sleep saat idle. Request pertama setelah sleep bisa lambat.
 
 ### Railway / Render / Koyeb
 
@@ -20,8 +39,10 @@ Platform harus meneruskan `PORT` otomatis. Jangan hardcode port publik.
 
 ```bash
 docker build -t ai-proxy-relay-node .
-docker run --rm -p 8080:8080 ai-proxy-relay-node
+docker run --rm -p 7860:7860 ai-proxy-relay-node
 ```
+
+Port default container adalah `7860`; platform dapat menggantinya melalui `PORT`.
 
 Environment optional:
 
